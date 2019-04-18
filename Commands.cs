@@ -19,7 +19,7 @@ namespace Louie_Bot
         [Summary("This is to check the server connection time.")]
         public async Task Ping()
         {
-            await ReplyAsync("**Latency: **" + Context.Client.Latency);
+            await ReplyAsync($"**Latency:  ** {Context.Client.Latency} ms");
         }
 
         [Command("help")]

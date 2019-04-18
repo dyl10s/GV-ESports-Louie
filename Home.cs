@@ -130,6 +130,13 @@ namespace Louie_Bot
             {
                 await arg.DeleteAsync();
             }
+
+            //React to message if it Contains SmokeyFish
+            if (arg.Content.ToLower().Contains("smokeyfish")) {
+                IUserMessage usermsg = (IUserMessage)arg;
+                Emote emote = Emote.Parse("<:smokeyfish:481276964850892821>");
+                await usermsg.AddReactionAsync(emote);
+            }
         }
     }
 }

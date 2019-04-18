@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.gbTerminal = new System.Windows.Forms.GroupBox();
             this.gbControls = new System.Windows.Forms.GroupBox();
-            this.tmrUpdateCheck = new System.Windows.Forms.Timer(this.components);
             this.lblVersion = new System.Windows.Forms.Label();
             this.gbTerminal.SuspendLayout();
             this.SuspendLayout();
@@ -67,12 +65,6 @@
             this.gbControls.TabIndex = 2;
             this.gbControls.TabStop = false;
             this.gbControls.Text = "Controls";
-            // 
-            // tmrUpdateCheck
-            // 
-            this.tmrUpdateCheck.Enabled = true;
-            this.tmrUpdateCheck.Interval = 120000;
-            this.tmrUpdateCheck.Tick += new System.EventHandler(this.TmrUpdateCheck_Tick);
             // 
             // lblVersion
             // 
@@ -110,7 +102,6 @@
         private System.Windows.Forms.TextBox txtOutput;
         private System.Windows.Forms.GroupBox gbTerminal;
         private System.Windows.Forms.GroupBox gbControls;
-        private System.Windows.Forms.Timer tmrUpdateCheck;
         private System.Windows.Forms.Label lblVersion;
     }
 }
