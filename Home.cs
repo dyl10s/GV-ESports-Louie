@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using System.Configuration;
 
 namespace Louie_Bot
 {
@@ -50,12 +51,8 @@ namespace Louie_Bot
                 .BuildServiceProvider();
 
             _sql.Setup();
-            //string botToken = "NDk5MzQzOTc2NDc4ODAxOTIy.XKjfBQ.MyR6KhmKgLCf-C8DrptlZVvGRQU";
-
-            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"values.json");
-
-            dynamic data = JsonConvert.DeserializeObject(path);
-            var botToken = data.token;
+            
+            var botToken = ConfigurationManager.AppSettings["token"];
 
             _client.Log += Log;
 
