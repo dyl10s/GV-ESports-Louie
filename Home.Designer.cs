@@ -32,11 +32,9 @@
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.gbTerminal = new System.Windows.Forms.GroupBox();
             this.gbControls = new System.Windows.Forms.GroupBox();
-            this.btnCheckForUpdate = new System.Windows.Forms.Button();
             this.tmrUpdateCheck = new System.Windows.Forms.Timer(this.components);
             this.lblVersion = new System.Windows.Forms.Label();
             this.gbTerminal.SuspendLayout();
-            this.gbControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtOutput
@@ -63,24 +61,12 @@
             // 
             // gbControls
             // 
-            this.gbControls.Controls.Add(this.btnCheckForUpdate);
             this.gbControls.Location = new System.Drawing.Point(13, 12);
             this.gbControls.Name = "gbControls";
             this.gbControls.Size = new System.Drawing.Size(893, 107);
             this.gbControls.TabIndex = 2;
             this.gbControls.TabStop = false;
             this.gbControls.Text = "Controls";
-            // 
-            // btnCheckForUpdate
-            // 
-            this.btnCheckForUpdate.ForeColor = System.Drawing.Color.Black;
-            this.btnCheckForUpdate.Location = new System.Drawing.Point(6, 31);
-            this.btnCheckForUpdate.Name = "btnCheckForUpdate";
-            this.btnCheckForUpdate.Size = new System.Drawing.Size(162, 56);
-            this.btnCheckForUpdate.TabIndex = 0;
-            this.btnCheckForUpdate.Text = "Check for Update";
-            this.btnCheckForUpdate.UseVisualStyleBackColor = true;
-            this.btnCheckForUpdate.Click += new System.EventHandler(this.BtnCheckForUpdate_Click);
             // 
             // tmrUpdateCheck
             // 
@@ -114,7 +100,6 @@
             this.Load += new System.EventHandler(this.Home_Load);
             this.gbTerminal.ResumeLayout(false);
             this.gbTerminal.PerformLayout();
-            this.gbControls.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,7 +110,6 @@
         private System.Windows.Forms.TextBox txtOutput;
         private System.Windows.Forms.GroupBox gbTerminal;
         private System.Windows.Forms.GroupBox gbControls;
-        private System.Windows.Forms.Button btnCheckForUpdate;
         private System.Windows.Forms.Timer tmrUpdateCheck;
         private System.Windows.Forms.Label lblVersion;
     }

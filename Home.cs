@@ -131,23 +131,5 @@ namespace Louie_Bot
                 await arg.DeleteAsync();
             }
         }
-
-        private void BtnCheckForUpdate_Click(object sender, EventArgs e)
-        {
-            Thread check = new Thread(CheckForUpdate);
-            check.Start();
-        }
-
-        private void TmrUpdateCheck_Tick(object sender, EventArgs e)
-        {
-            Thread check = new Thread(CheckForUpdate);
-            check.Start();
-        }
-
-        public void CheckForUpdate() {
-            AutoUpdater.DownloadPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            AutoUpdater.RunUpdateAsAdmin = true;
-            AutoUpdater.Start("https://discord.gvesports.org/Louie.xml");
-        }
     }
 }
