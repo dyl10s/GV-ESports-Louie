@@ -23,7 +23,7 @@ If you would like to run this server on your own PC, you will need to create an 
 To install this App.Config file
 
 ```
-Give examples
+Right click on the Solution. Add -> New Item -> Application Configuration File. Rename it App.config and paste the contents from above.
 ```
 
 ## Running
