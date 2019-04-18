@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.gbTerminal = new System.Windows.Forms.GroupBox();
             this.gbControls = new System.Windows.Forms.GroupBox();
             this.btnCheckForUpdate = new System.Windows.Forms.Button();
+            this.tmrUpdateCheck = new System.Windows.Forms.Timer(this.components);
+            this.lblVersion = new System.Windows.Forms.Label();
             this.gbTerminal.SuspendLayout();
             this.gbControls.SuspendLayout();
             this.SuspendLayout();
@@ -44,6 +47,7 @@
             this.txtOutput.Location = new System.Drawing.Point(3, 18);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
+            this.txtOutput.ReadOnly = true;
             this.txtOutput.Size = new System.Drawing.Size(887, 488);
             this.txtOutput.TabIndex = 0;
             // 
@@ -76,21 +80,43 @@
             this.btnCheckForUpdate.TabIndex = 0;
             this.btnCheckForUpdate.Text = "Check for Update";
             this.btnCheckForUpdate.UseVisualStyleBackColor = true;
+            this.btnCheckForUpdate.Click += new System.EventHandler(this.BtnCheckForUpdate_Click);
+            // 
+            // tmrUpdateCheck
+            // 
+            this.tmrUpdateCheck.Enabled = true;
+            this.tmrUpdateCheck.Interval = 120000;
+            this.tmrUpdateCheck.Tick += new System.EventHandler(this.TmrUpdateCheck_Tick);
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(16, 635);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(59, 17);
+            this.lblVersion.TabIndex = 1;
+            this.lblVersion.Text = "v0.0.0.0";
+            this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 647);
+            this.ClientSize = new System.Drawing.Size(918, 653);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.gbTerminal);
             this.Controls.Add(this.gbControls);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximumSize = new System.Drawing.Size(936, 700);
+            this.MinimumSize = new System.Drawing.Size(936, 694);
             this.Name = "Home";
             this.Text = "Louie";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.gbTerminal.ResumeLayout(false);
             this.gbTerminal.PerformLayout();
             this.gbControls.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -100,6 +126,8 @@
         private System.Windows.Forms.GroupBox gbTerminal;
         private System.Windows.Forms.GroupBox gbControls;
         private System.Windows.Forms.Button btnCheckForUpdate;
+        private System.Windows.Forms.Timer tmrUpdateCheck;
+        private System.Windows.Forms.Label lblVersion;
     }
 }
 
