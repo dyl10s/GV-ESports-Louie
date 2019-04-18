@@ -106,10 +106,19 @@ namespace Louie_Bot
         [Command("set")]
         [Remarks("!set (role)")]
         [Summary("Sets a new role to the user")]
-        public async Task SetRole()
+        public async Task SetRole([Remainder] string game)
         {
             sql.Setup();
 
+            await ReplyAsync("");
+        }
+
+        [Command("role")]
+        [Remarks("!role (role)")]
+        [Summary("Outputs a list of users in that role")]
+        public async Task GetRoleList([Remainder] string role)
+        {
+            //var socket = Context.Client.GetGuild();
             await ReplyAsync("");
         }
     }

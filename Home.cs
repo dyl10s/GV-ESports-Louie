@@ -3,6 +3,7 @@ using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
 using AutoUpdaterDotNET;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace Louie_Bot
 {
@@ -47,8 +50,12 @@ namespace Louie_Bot
                 .BuildServiceProvider();
 
             _sql.Setup();
-            string botToken = "NDk5MzQzOTc2NDc4ODAxOTIy.XKjfBQ.MyR6KhmKgLCf-C8DrptlZVvGRQU";
+            //string botToken = "NDk5MzQzOTc2NDc4ODAxOTIy.XKjfBQ.MyR6KhmKgLCf-C8DrptlZVvGRQU";
 
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"values.json");
+
+            dynamic data = JsonConvert.DeserializeObject(path);
+            var botToken = data.token;
 
             _client.Log += Log;
 
@@ -130,13 +137,20 @@ namespace Louie_Bot
 
         private void BtnCheckForUpdate_Click(object sender, EventArgs e)
         {
-            AutoUpdater.Start("https://discord.gvesports.org/Louie.xml");
-            AutoUpdater.DownloadPath = Environment.CurrentDirectory;
+            Thread check = new Thread(CheckForUpdate);
+            check.Start();
         }
 
         private void TmrUpdateCheck_Tick(object sender, EventArgs e)
         {
-            //CheckForUpdate();
+            Thread check = new Thread(CheckForUpdate);
+            check.Start();
+        }
+
+        public void CheckForUpdate() {
+            AutoUpdater.DownloadPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            AutoUpdater.RunUpdateAsAdmin = true;
+            AutoUpdater.Start("https://discord.gvesports.org/Louie.xml");
         }
     }
 }
