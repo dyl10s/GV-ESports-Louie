@@ -134,7 +134,8 @@ namespace Louie_Bot
                 }
             }
 
-            if (outList.Count == 0) {
+            if (outList.Count == 0)
+            {
                 await ReplyAsync("There are no users in this role.");
             }
             else {
