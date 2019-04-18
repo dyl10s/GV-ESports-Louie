@@ -3,6 +3,8 @@ using Discord.Commands;
 using Discord.WebSocket;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -118,8 +120,34 @@ namespace Louie_Bot
         [Summary("Outputs a list of users in that role")]
         public async Task GetRoleList([Remainder] string role)
         {
-            //var socket = Context.Client.GetGuild();
-            await ReplyAsync("");
+            role = role.ToLower();
+            var socket = Context.Client.GetGuild(Context.Guild.Id);
+            List<SocketGuildUser> userList = socket.Users.Cast<SocketGuildUser>().ToList();
+
+            List<string> outList = new List<string>();
+
+            foreach (SocketGuildUser user in userList) {
+                foreach (SocketRole userRole in user.Roles) {
+                    if (userRole.Name.ToLower() == role) {
+                        outList.Add(user.Username.ToString());
+                    }
+                }
+            }
+
+            if (outList.Count == 0) {
+                await ReplyAsync("There are no users in this role.");
+            }
+            else {
+                string msgString = $"There are currently {outList.Count} users in {role}!" ;
+
+                foreach (string user in outList)
+                {
+                    msgString += Environment.NewLine + user;
+                }
+
+                await ReplyAsync(msgString);
+            }
+
         }
     }
 }
