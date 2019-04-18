@@ -1,7 +1,7 @@
 # GV-ESports-Louie
 [![NuGet](https://img.shields.io/nuget/vpre/Discord.Net.svg?maxAge=2592000?style=plastic)](https://www.nuget.org/packages/Discord.Net)
 [![MyGet](https://img.shields.io/myget/discord-net/vpre/Discord.Net.svg)](https://www.myget.org/feed/Packages/discord-net) 
-[![Discord](https://discordapp.com/api/guilds/335284078796603392/widget.png)](https://www.discord.gg/zdmpKuh)
+[![Discord](https://discordapp.com/api/guilds/335284078796603392/widget.png?style=shield)](https://www.discord.gg/zdmpKuh)
 
 This is a discord bot created for Grand Valley's ESport's discord server.
 
