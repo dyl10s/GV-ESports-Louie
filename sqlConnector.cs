@@ -39,7 +39,8 @@ namespace Louie_Bot
 
         public void Setup()
         {
-            this.Setup("den1.mssql2.gear.host", "discordcount", "discordcount", "Keller13$");
+            var password = File.ReadAllText("DatabaseInfo.txt");
+            this.Setup("den1.mssql2.gear.host", "discordcount", "discordcount", password);
         }
 
         public void Execute(string sqlString)
